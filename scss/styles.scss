@@ -1,0 +1,357 @@
+$color-cheddar: rgb(247, 167, 20);
+$border-video-image: solid 3px white;
+$classic-border: solid black 1px;
+h1{
+    color: red;
+    background-color: rgba(255, 238, 0, 0.938);
+    text-align: center;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 300;
+    margin: 10px;}
+    
+    body{
+        background-color: gold;
+        background-image: url(https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f354.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        line-height: 1.5;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        text-align: left;}
+
+    .p:not(.p-1){
+    background-color: tomato;
+    border: solid 2px yellow;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: aliceblue;
+    text-align: center;
+    }
+    h2::after{
+        content: '';
+        width: 20%;
+        height: 4px;
+        background-color: $color-cheddar;
+        display: block;
+    }
+    h3::after{
+        @extend h2,::after;
+    }
+    table{
+        $table-color: rgb(255, 255, 0);
+        background-color: $color-cheddar;
+        border-collapse: collapse;
+        text-align: center;
+        tr:nth-child(even){
+            background-color: $table-color;
+        }
+        th:nth-child(-n+5){
+            background: linear-gradient($table-color,crimson);
+        }
+        th, td{
+            border: $classic-border;
+            padding: 0%;
+        }
+        th{
+            background-color: $table-color;
+         }
+    }
+   
+    li{
+        list-style-type: '🍔';
+        padding: 2px;
+    }
+    li:nth-child(even){
+        list-style-type: '🍟';}
+        .list-group{
+            @for $count from 1 through 11 {
+                li:nth-child(#{$count}) {
+                    background-color: lighten($color-cheddar, $count * 3%)
+            }
+        }
+        width: 80%;
+    }
+   .breadcrumb{
+    background-color: $color-cheddar;
+    border-radius: 10px;
+    border: orangered solid 1px;
+    opacity: 0.8;
+width: 30%;}
+   
+    .links{
+       background-color: $color-cheddar;
+       font-family: 'Montserrat', sans-serif;
+       font-size: 15px;
+       padding: 10px;
+       margin-inline: 15px;
+       text-align: center;
+      
+    }
+    .link1{
+        background-color: lightyellow;
+        &:hover{
+            background-color: darken($color: rgb(173, 169, 169), $amount: 10%);
+        }
+    }
+ 
+    .footer{
+        background-color: rgba(250, 156, 48,0.7);
+        margin-top: 10px;
+        border: solid orange 2px;
+        .msj{
+            text-align: center;
+            background-color: gold;
+            border-radius: 15px;
+            color: crimson;
+        }
+    }
+   
+    .redes{
+        $redes: (instagram: rgba(231, 77, 103,0.5),twitter: rgba(157, 217, 236,0.5),facebook:rgba(78, 78, 240,0.5));
+    
+            @each $clave, $valor in $redes {
+                .redes-#{$clave} {
+                    background-color: $valor;
+                }
+            }}
+    @mixin flex ($justify, $align, $direction, $wrap, $gap, $top){
+        display: flex;
+        justify-content: $justify;
+        align-items: $align;
+        flex-direction: $direction;
+        flex-wrap: $wrap;
+        gap: $gap;
+        margin-top: $top;
+    }
+        .redes{
+            @include flex(space-around, center, row, nowrap , 10px, 5px)
+        }
+           
+            .redes2{
+                $redes: (whatsapp: rgba(61, 240, 85, 0.5),gmail: rgba(241, 92, 92, 0.5),linkedin:rgba(32, 32, 243, 0.5));
+            
+                    @each $clave, $valor in $redes {
+                        .redes2-#{$clave} {
+                            background-color: $valor;
+                        }
+                    }
+                width: 45%;}
+    .contact{
+             background-color: rgb(238, 238, 45);
+             border: $classic-border;
+            }
+    .images{
+        border: $border-video-image;
+        width:100%;
+    
+    &:hover{
+        border: solid 3px tomato;
+    }
+}
+     
+    .video{
+        border: $border-video-image;
+        width: 100%;
+
+        &:hover{
+            border:  solid 3px tomato;
+        }
+    }
+    
+   
+   
+    .logo-t{
+        border: $classic-border;
+        &:hover{
+            animation-name: logo-t-move;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 2s;
+        }
+        @keyframes logo-t-move{
+            0%{
+                scale: (1);
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }}
+    }
+    
+    
+    .flex{
+        max-width: 100%;
+        max-height: 50%;
+        display: flex;
+        direction: row;
+        justify-content: center; 
+        align-items: stretch;
+        gap: 20px;}
+    
+     
+    .flex-section{
+        display: flex;
+        max-width: 1000px;
+        border: red solid 3px;
+        box-shadow: 4px 4px rgba(0, 0, 0, 0.425);
+        align-items: center;
+        margin: 20px;
+        justify-content: space-between;
+        gap: 10px;
+        .QS{
+            border: 3px solid crimson;
+            width: 70%; 
+            &:hover{
+                border:  solid 3px steelblue;
+            }
+        }
+    }
+    .alternar{
+        flex-direction: row-reverse;
+    }
+    .logo{
+        border: $classic-border;
+        max-height: 50px;
+        margin-right: 10px;
+        animation-name: logo-move;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        @keyframes logo-move {
+            0% {
+                transform: scale(1) rotate(0); 
+            }
+            25% {
+                transform: scale(1) rotate(20deg);
+            }
+            50% {
+                transform: scale(1) rotate(0);
+            }
+            75% {
+                transform: scale(1) rotate(-20deg); 
+            }
+            100% {
+                transform: scale(1) rotate(0);
+            }}
+        
+    }
+    .gridH{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "header nav";
+        align-items: center;
+        max-width: 100%;
+        row-gap: 10px;
+        .header-area{
+            grid-area: header;
+             }
+             .grid-nav{
+                grid-area: nav;
+                } 
+                
+                .menuLink{
+                    margin-right: 10px;
+                
+                    background-color: rgb(255, 136, 0);
+                    border: solid orangered 1px;
+                    &:hover {
+                        box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.4);
+                        background:linear-gradient( orange, yellow);}
+                }         
+                }  
+    
+    .forms-imput{
+       width: 100%;
+        padding: 10px;
+        outline: none;
+        border: rgba(177, 130, 3, 0.5) solid 5px;
+        background-color: $color-cheddar;
+        opacity: 0.9;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        .field1{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+        .field2{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        textarea{resize: none;
+        }
+        
+    }
+    .btn{
+        background-color: rgb(250, 156, 48);
+        border-color: black;
+      }
+    .button{
+        @extend .btn;
+        border: solid crimson 3px;
+        
+    }
+@mixin button($text-align: center, $margin: 10px) {
+ text-align: $text-align;
+ margin: $margin;
+}
+.button{
+    @include button(center, 10px)
+}
+    .carousel-item {
+        text-align: center;
+        background-color: $color-cheddar;
+        border: orangered solid 1px;
+    }
+    @media (max-width: 1030px){
+        h1{ background-color: rgba(255, 238, 0, 0.938);}
+        body{
+            line-height: 1.5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-align: left;
+        }
+    }
+     @media (max-width: 620px){
+        h1{background-color: rgba(255, 238, 0, 0.938);}
+        body{
+            line-height: 1.5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-align: left;
+        }
+        .flex{flex-wrap: wrap;}
+        .flex-section{
+            flex-wrap: wrap;
+        }
+        .list-group{
+            width: 60%;
+        }
+        .footer{
+            width: 90%;
+        }
+        .redes{
+            width: 80%;
+        }
+     }  
+     @media (max-width: 480px){
+        h1{background-color: rgba(255, 238, 0, 0.938);
+        font-size: 1rem;}
+        body{
+            line-height: 1.5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            text-align: left;
+        }
+    }
